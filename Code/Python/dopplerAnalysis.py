@@ -10,6 +10,26 @@ filename = 'dopplerShift-0-80000.txt'
 tt, tx, rx = np.loadtxt(path+filename, unpack=True)
 
 
+
+newtt = []
+shift = 0
+for i in range(len(tt)):
+#    if(i > 600000):
+#        break
+
+    newtt.append( ( tt[i] ) + shift )
+
+    if( i != len(tt)-1 and tt[i] > 0 and tt[i+1] < 0):
+        shift = newtt[-1] - tt[i+1]
+
+tt = newtt
+
+
+
+
+
+
+
 # fourier transform
 freqs = np.fft.rfftfreq(len(tt), np.mean(np.diff(tt)))
 ftx = np.abs(np.fft.rfft(tx))
@@ -26,9 +46,12 @@ plt.plot(freqs, ftx, label='tx')
 plt.plot(freqs, frx, label='rx')
 
 
-plt.xlim(5e6, 1e7)
-plt.xscale('log')
-plt.yscale('log')
+#plt.xlim(1, 5e4)
+#plt.xscale('log')
+
+plt.xlim(39.750e3, 40.250e3)
+
+#plt.yscale('log')
 plt.xlabel('Frequency (Hz)')
 
 plt.show()

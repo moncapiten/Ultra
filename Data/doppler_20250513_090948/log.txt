@@ -1,0 +1,1 @@
+091004 >>> stopped measurement to compare for doppler shift visualization

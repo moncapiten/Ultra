@@ -180,14 +180,14 @@ from pastamarkers import pasta
 
 # plot the data
 plt.figure()
-plt.scatter(stoppedfreqs, stoppedfrx, marker = pasta.tortellini, s=1000, label='stoppedrx')
-plt.scatter(movingfreqs, movingfrx, marker = pasta.farfalle, s=1000, label='stoppedrx')
+plt.scatter(stoppedfreqs, stoppedfrx, marker = pasta.tortellini, s=1000, label='stoppedrx', linewidth=0.1)
+plt.scatter(movingfreqs, movingfrx, marker = pasta.farfalle, s=1000, label='stoppedrx', linewidth=0.1)
 
 #plt.xlim(1, 5e4)
 #plt.xscale('log')
 
 
-plt.xlim(40.95e3, 40.98e3)
+plt.xlim(40.965e3, 40.97e3)
 plt.legend()
 plt.title('Fourier Transform of the received signals')
 
